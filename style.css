@@ -1,0 +1,180 @@
+body {
+    max-width: 1440px;
+    width: 100%;
+    margin:0 auto;
+    font-size: var(--font-default-size);
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight);
+    color: var(--default-text-color);
+    background-color: #cde2eb;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 700;
+}
+ #calculatorBody {
+  width: 360px;
+  background: 	#b3e8f8;
+  margin: auto;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px;
+}
+
+:root {
+  /* Font */
+  --font-primary: 'League Spartan', sans-serif;
+  --font-weight: 700;
+  --font-default-size: 14px;
+  /* Text color */
+  --default-text-color: hsl(0, 0%, 100%);
+  /*theme */
+  --main-background: hsl(213, 70%, 87%);
+  --main-keypad: hsla(203, 18%, 46%, 0.596);
+  --main-screen: hsl(198, 16%, 51%);
+  --main-key: hsl(199, 86%, 36%);
+  --main-key-shadow:hsl(209, 64%, 25%);
+  --main-key-assign-slider: hsl(204, 76%, 24%);
+  --main-key-assign-slider-shadow:hsl(207, 77%, 30%);
+  --main-key-reset-del: hsl(226, 63%, 33%);
+  --main-key-reset-del-shadow:hsl(226, 52%, 25%);
+  --main-button-text: hsl(172, 85%, 79%);
+  --main-button-active:rgb(90, 117, 139);
+ 
+}
+/* -------- main ------- */
+main {
+  width: 100%;
+}
+/* ------- Container  ------- */
+/* main theme */
+.container.main-theme {
+  height: 100vh;
+  background: var(--main-background);
+}
+.container {
+  width: 100%;
+  display: grid;
+  place-content: center;
+}
+/* ------- Calc container  ------- */
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 500px; 
+  background: rgba(29, 29, 29, 0.3);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 0px 0px rgb(103, 141, 167);
+}
+/* ------- Calc header  ------- */
+.calculator-header {
+  width: 100%;
+  font-size: 25px;
+}
+
+/* ------- Screen ------- */
+.calc-screen {
+  overflow: hidden;
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+  background: var(--main-screen);
+  padding: 20px;
+  text-align: end;
+  border: 2px solid var(--main-key-assign-slider-shadow);
+}
+/* Previous calculation */
+.calc-screen .previous-operation {
+  font-size: 16px;
+  margin-bottom: 10px;
+  height: 20%;
+  opacity: .5;
+}
+/* Current calculation */
+.calc-screen .current-operation {
+  height: 80%;
+  font-size: 45px;
+}
+/* main theme -screen*/
+.calc-screen.main-theme {
+  background: var(--main-screen);
+}
+/* Calc keyboard */
+.calc-keyboard {
+  height: 400px;
+  border-radius: 10px;
+  padding: 30px;
+  display: grid;
+  grid-template-rows: repeat(5,calc(20% - 10px));
+  grid-template-columns: repeat(4,calc(25% - 7.5px));
+  place-content: center;
+  gap: 12px;
+  box-shadow: 0px 5px 0px 0px var(--main-key-assign-slider-shadow);
+  
+}
+/* main theme -keyboard*/
+.calc-keyboard.main-theme {
+    background: var(--main-keypad);
+}
+/* Keys */
+.key {
+  border-radius: 5px;
+  font-size: 34px;
+  border: none;
+  font-weight: 700;
+  transition:  background-color .2s, box-shadow .1s;
+}
+/* key reset */
+.key-reset {
+  font-size: 24px;
+}
+/* key assign */
+.key-assign {
+  grid-column: 2 / -2;
+}
+/* key del */
+.key-del {
+  font-size: 24px;
+}
+
+/* ------- keys main theme ------- */
+.calc-keyboard.main-theme>.key {
+  background: var(--main-key);
+  box-shadow: 0px 5px 0px 0px var(--main-key-shadow);
+  color: var(--main-button-text);
+}
+.calc-keyboard.main-theme>.key-reset,
+.calc-keyboard.main-theme>.key-del {
+  background: var(--main-key-reset-del);
+  box-shadow: 0px 5px 0px 0px var(--main-key-reset-del-shadow);
+  color: var(--default-text-color);
+}
+.calc-keyboard.main-theme>.key-assign {
+  font-size: 24px;
+  color: var(--default-text-color);
+  background: var(--main-key-assign-slider);
+  box-shadow: 0px 5px 0px 0px var(--main-key-assign-slider-shadow);
+}
+
+/* ------- Hover Effects ------- */
+
+.calc-keyboard>.key:hover {
+  transform: scale(.96);
+}
+.calc-keyboard>.key:active {
+  transform: scale(.93);
+  opacity: .8;
+  box-shadow: 0px 2px 0px 0px rgba(139, 29, 190, 0);
+}
+.calc-keyboard.main-theme>.key:active {
+  background: var(--main-button-active);
+}
+
+/* Transition */
+.main-theme{
+  transition: background-color .5s;
+}
